@@ -15,14 +15,33 @@ function randomNumberId(){
 	return Math.floor(Math.random() * (1 + max - min) + min);
  }
 
+function genProp () {
+    var el = '<tr>'+
+                '<td>'+randomNumberId()+'</td>'+
+                '<td>'+randomNumberSq()+' Sq. Ft.</td>'+
+                '<td>$'+randomNumberPrice()+' /sq.ft</td>'+
+                '<td><button class="remove">Remove</button></td>'+
+            '</tr>';
+            
+           $('table').append(el); 
+}
 
+function removeProp (self) {
+    var el = $(self).parent().parent();
+    console.log(el);
+    $(el).remove();
+}
 
 $(document).ready(function(){
     
   $('.dir').on('click', '#gen', function(){
-     console.log('working'); 
+     genProp();
   }); 
-    
+  
+  $('table').on('click', '.remove', function(){
+     self = this;
+     removeProp(self); 
+  });  
     
     
 });
