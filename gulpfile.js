@@ -10,7 +10,7 @@ gulp.task('default',['index','script','comboSass','scss','watch']);
 gulp.task('watch', function(){
    gulp.watch('client/views/index.html',['index']); 
    gulp.watch('client/scripts/*.js',['script']);
-   gulp.watch('client/styles/*.scss',['comboSass','scss']);
+   gulp.watch('client/styles/scss/*.scss',['comboSass','scss']);
 });
 
 gulp.task('index', function(){
